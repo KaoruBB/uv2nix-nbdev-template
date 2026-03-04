@@ -87,6 +87,7 @@
             packages = [
               python
               pkgs.uv
+              pkgs.quarto
             ];
             env = {
               UV_PYTHON_DOWNLOADS = "never";
@@ -139,6 +140,7 @@
               packages = [
                 virtualenv
                 pkgs.uv
+                pkgs.quarto
               ];
 
               env = {
