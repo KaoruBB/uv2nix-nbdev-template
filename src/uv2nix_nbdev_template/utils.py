@@ -3,13 +3,13 @@
 # %% auto #0
 __all__ = ['find_project_root']
 
-# %% ../../nbs/utils.ipynb #52dfbcc2
-import os
+# %% ../../nbs/utils.ipynb #d2439d37
 from fastcore.all import Path, L
 
-# %% ../../nbs/utils.ipynb #0c38da64
+# %% ../../nbs/utils.ipynb #692d6a30
 def find_project_root():
-    path = Path(os.path.abspath('__file__'))
+    try: path = Path(__file__).resolve().parent
+    except NameError: path = Path.cwd().resolve()
     while True:
         root_files = L('flake.nix', '.gitignore', 'pyproject.toml')
         if all((path / f).exists() for f in root_files): return path
