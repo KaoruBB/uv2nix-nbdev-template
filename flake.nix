@@ -1,5 +1,5 @@
 {
-  description = "A minimal template for Python projects using uv2nix";
+  description = "A minimal template for nbdev projects using uv2nix";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
