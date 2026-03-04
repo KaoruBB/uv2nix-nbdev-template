@@ -3,25 +3,15 @@
 # %% auto #0
 __all__ = ['find_project_root']
 
-# %% ../../nbs/utils.ipynb #b9c83adf
+# %% ../../nbs/utils.ipynb #52dfbcc2
 import os
 from fastcore.all import Path, L
 
-# %% ../../nbs/utils.ipynb #999a627d
+# %% ../../nbs/utils.ipynb #0c38da64
 def find_project_root():
     path = Path(os.path.abspath('__file__'))
     while True:
-        root_files = L('setup.py', 'settings.ini', 'pyproject.toml')
-        # if (
-        #     (path / "setup.py").exists()
-        #     and (path / "settings.ini").exists()
-        #     and (path / "pyproject.toml").exists()
-        # ):
-        #     return path
+        root_files = L('flake.nix', '.gitignore', 'pyproject.toml')
         if all((path / f).exists() for f in root_files): return path
-    
-
-        # 一つ上のディレクトリへ移動
         path = path.parent
-        if path == Path("/"):
-            raise ValueError("Project root not found.")
+        if path == Path("/"): raise ValueError("Project root not found.")
