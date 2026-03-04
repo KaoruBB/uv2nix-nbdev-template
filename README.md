@@ -1,25 +1,26 @@
-# Minimal uv2nix Template
+# uv2nix-nbdev-template
 
-A minimal template for Python projects using uv2nix and Nix flakes.
+A minimal template for [nbdev](https://nbdev.fast.ai/) projects using [uv2nix](https://github.com/adisbladis/uv2nix) and Nix flakes.
 
 ## Features
 
-- Simple Python project structure
-- uv2nix integration for dependency management
-- Nix flake for reproducible development environments
+- **nbdev3 Support**: Fully compliant with the Jan 2026 major update (no `settings.ini`, all configurations in `pyproject.toml`).
+- **uv2nix integration**: Fast and reproducible dependency management using `uv`.
+- **Nix flake**: Deterministic development environment and build.
+- **src-layout**: Modern Python project structure.
 
 ## Getting Started
 
 ### Prerequisites
 
 - [Nix](https://nixos.org/download.html) with flakes enabled
-- [direnv](https://direnv.net/) (recommended for automatic environment switching)
+- [direnv](https://direnv.net/) (recommended)
 
 ### Creating a New Project
 
-1. Click the "Use this template" button at the top of this repository page
-2. OR use GitHub CLI: `gh repo create my-project --template KaoruBB/uv2nix-template`
-3. Clone your new repository and update the project details in `pyproject.toml`
+1. Click the "Use this template" button at the top of this repository page.
+2. Clone your new repository.
+3. **Important**: Update the project details in `pyproject.toml` (especially `name`, `authors`, and `[tool.nbdev]` settings).
 
 ### Development Workflow
 
@@ -30,25 +31,31 @@ cd your-project-name
 # If using direnv:
 direnv allow
 
-# Alternatively, manually enter the development shell:
-nix develop
+# Add new Python dependencies
+uv add <package-name>
+# Sync Nix environment
+direnv reload
 
-# Run the example
-python main.py
+
+# Edit your notebooks in nbs/ directory...
+
+# Export notebooks to library (src/uv2nix_nbdev_template/)
+nbdev-export
+
 ```
 
-### Adding Dependencies
+## nbdev3 Compatibility (Jan 2026 Update)
 
-1. Run `uv add <package>` to add a new Python package.
-2. Update the flake with `direnv reload`
+This template follows the latest `nbdev` standards. It uses `pyproject.toml` for all configurations, including `nbdev` specific settings under `[tool.nbdev]`. This eliminates the need for a separate `settings.ini` file.
 
 ## Project Structure
 
-- `flake.nix`: Nix flake configuration
-- `pyproject.toml`: Python project dependencies
-- `main.py`: Example Python script
-- `uv.lock`: Lock file for Python dependencies
-- `.envrc`: direnv configuration for automatic environment activation
+- `flake.nix`: Nix flake configuration.
+- `pyproject.toml`: Python project dependencies and `nbdev` settings.
+- `nbs/`: Jupyter notebooks for development and documentation.
+- `src/`: Exported Python library (automatically managed by `nbdev-export`).
+- `uv.lock`: Lock file for Python dependencies.
+- `.envrc`: direnv configuration.
 
 ## License
 
