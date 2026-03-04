@@ -1582,6 +1582,7 @@ name = "uv2nix-template"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
+    { name = "fastcore" },
     { name = "ipykernel" },
     { name = "jupyter" },
     { name = "nbdev" },
@@ -1594,6 +1595,7 @@ dev = [
 
 [package.metadata]
 requires-dist = [
+    { name = "fastcore", specifier = ">=1.12.22" },
     { name = "ipykernel", specifier = ">=6.29.5" },
     { name = "jupyter", specifier = ">=1.1.1" },
     { name = "nbdev", specifier = ">=3.0.12" },
