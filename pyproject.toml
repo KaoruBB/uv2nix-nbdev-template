@@ -12,7 +12,12 @@ license = {text = "Proprietary"}
 authors = [{name = "KaoruBB", email = "{kaorubabasaki@gmail.com}"}]
 keywords = ['template', 'uv2nix', 'nbdev']
 classifiers = ["Natural Language :: English", "Intended Audience :: Developers", "Development Status :: 2 - Pre-Alpha", "Programming Language :: Python :: 3", "Programming Language :: Python :: 3 :: Only"]
-dependencies = []
+dependencies = [
+    "fastcore>=1.12.22",
+    "ipykernel>=6.29.5",
+    "jupyter>=1.1.1",
+    "nbdev>=3.0.12",
+]
 
 [project.urls]
 Repository = "https://github.com/KaoruBB/uv2nix-nbdev-template/"
@@ -33,3 +38,26 @@ doc_path = "docs"
 lib_path = "src/uv2nix_nbdev_template"
 custom_sidebar = true
 title = "uv2nix_nbdev_template"
+
+[dependency-groups]
+dev = [
+    "pytest>=8.4.1",
+    "ruff>=0.15.4",
+]
+
+[tool.ruff.format]
+docstring-code-format = true
+
+[tool.ruff]
+line-length = 160
+show-fixes = true
+select = [
+    "F",   # Pyflakes
+    "W",   # pycodestyle
+    "E",   # pycodestyle
+    "I",   # isort
+    "UP",  # pyupgrade
+    "PL",  # Pylint
+    "T201", # Print Statement
+]
+ignore = ["E501"]  # Ruff format takes care of line-too-long
