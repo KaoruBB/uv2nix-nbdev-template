@@ -1,0 +1,9 @@
+project:
+  output-dir: docs
+
+website:
+  title: "uv2nix-nbdev-template"
+  site-url: "https://KaoruBB.github.io/uv2nix-nbdev-template"
+  description: "A minimal template for nbdev projects using uv2nix"
+  repo-branch: main
+  repo-url: "https://github.com/KaoruBB/uv2nix-nbdev-template"

@@ -37,7 +37,6 @@ include = ["uv2nix_nbdev_template*"]
 nbs_path = "nbs"
 doc_path = "docs"
 lib_path = "src/uv2nix_nbdev_template"
-readme_nb = "index.ipynb"
 custom_sidebar = true
 title = "uv2nix_nbdev_template"
 
