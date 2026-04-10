@@ -47,3 +47,15 @@ _exclude:
   - "_proc"
   - "docs"
   - "copier.yml"
+  # Exclude the actual files used by this repo to avoid conflicts with .jinja versions
+  - "flake.nix"
+  - "pyproject.toml"
+  - "nbs/nbdev.yml"
+
+# Transformations
+_jinja_extensions:
+  - jinja2_time.TimeExtension # useful if you want to use {% now %}
+
+# Rename .jinja files to their base names during copy
+_tasks:
+  - ["rm", "-rf", "src/uv2nix_nbdev_template"] # Ensure the old directory name doesn't persist
