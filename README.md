@@ -23,8 +23,8 @@ across `flake.nix`, `pyproject.toml`, and `nbdev` settings.
 # 1. Generate the project (answer the interactive prompts)
 uvx copier copy --trust gh:KaoruBB/uv2nix-nbdev-template ./my-new-project
 
-# 2. Enter the directory
-cd my-new-project
+# 2. Enter the directory and initialize gi
+cd my-new-project && git add . && git commit -m "Initial commit from template"
 
 # 3. Create a GitHub repository and push
 # (Requires GitHub CLI 'gh' installed)
