@@ -55,5 +55,6 @@ _tasks:
       "flake.nix.jinja",
       "pyproject.toml.jinja",
       "nbs/nbdev.yml.jinja",
+      "src/pyproject.toml.jinja",
     ]
   - ["git", "init"]
