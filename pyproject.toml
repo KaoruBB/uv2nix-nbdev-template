@@ -3,13 +3,13 @@ requires = ["setuptools>=64"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "uv2nix_nbdev_template"
+name = "{{ package_name }}"
 version = "0.1.0"
-description = "A minimal template for nbdev projects using uv2nix"
+description = "{{ description }}"
 readme = "README.md"
 requires-python = ">=3.12"
 license = {text = "Proprietary"}
-authors = [{name = "KaoruBB", email = "{kaorubabasaki@gmail.com}"}]
+authors = [{name = "{{ author_name }}", email = "{{ author_email }}"}]
 keywords = ['template', 'uv2nix', 'nbdev']
 classifiers = ["Natural Language :: English", "Intended Audience :: Developers", "Development Status :: 2 - Pre-Alpha", "Programming Language :: Python :: 3", "Programming Language :: Python :: 3 :: Only"]
 dependencies = [
@@ -20,25 +20,25 @@ dependencies = [
 ]
 
 [project.urls]
-Repository = "https://github.com/KaoruBB/uv2nix-nbdev-template/"
-Documentation = "https://KaoruBB.github.io/uv2nix_nbdev_template/"
+Repository = "https://github.com/{{ github_username }}/{{ repo_name }}/"
+Documentation = "https://{{ github_username }}.github.io/{{ repo_name }}/"
 
 [project.entry-points.nbdev]
-uv2nix_nbdev_template = "uv2nix_nbdev_template._modidx:d"
+{{ package_name }} = "{{ package_name }}._modidx:d"
 
 [tool.setuptools.package-dir]
 "" = "src"
 
 [tool.setuptools.packages.find]
 where = ["src"]
-include = ["uv2nix_nbdev_template*"]
+include = ["{{ package_name }}*"]
 
 [tool.nbdev]
 nbs_path = "nbs"
 doc_path = "docs"
-lib_path = "src/uv2nix_nbdev_template"
+lib_path = "src/{{ package_name }}"
 custom_sidebar = true
-title = "uv2nix_nbdev_template"
+title = "{{ package_name }}"
 
 [dependency-groups]
 dev = [

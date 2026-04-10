@@ -1,5 +1,5 @@
 {
-  description = "A minimal template for nbdev projects using uv2nix";
+  description = "{{ description }}";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -68,7 +68,7 @@
       {
         # Default package (a virtual environment with runtime dependencies)
         # Build with: nix build .#
-        packages.default = pythonSet.mkVirtualEnv "uv2nix-template-env" workspace.deps.default;
+        packages.default = pythonSet.mkVirtualEnv "{{ package_name }}-env" workspace.deps.default;
 
         # Apps (runnable scripts) - Commented out as no scripts defined in pyproject.toml yet
         # apps.${system} = {
@@ -120,7 +120,7 @@
 
                   # Apply fixups for building an editable package of your workspace packages
                   (final: prev: {
-                    uv2nix-template = prev.uv2nix-template.overrideAttrs (old: {
+                    {{ package_name }} = prev.{{ package_name }}.overrideAttrs (old: {
                       nativeBuildInputs =
                         (old.nativeBuildInputs or [ ]) # Ensure list exists even if null
                         ++ final.resolveBuildSystem {
@@ -133,7 +133,7 @@
               );
 
               # Build the development virtual environment with *all* dependencies (including dev)
-              virtualenv = editablePythonSet.mkVirtualEnv "uv2nix-template-dev-env" workspace.deps.all;
+              virtualenv = editablePythonSet.mkVirtualEnv "{{ package_name }}-dev-env" workspace.deps.all;
 
             in
             pkgs.mkShell {

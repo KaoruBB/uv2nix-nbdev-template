@@ -2,8 +2,8 @@ project:
   output-dir: docs
 
 website:
-  title: "uv2nix-nbdev-template"
-  site-url: "https://KaoruBB.github.io/uv2nix-nbdev-template"
-  description: "A minimal template for nbdev projects using uv2nix"
+  title: "{{ project_name }}"
+  site-url: "https://{{ github_username }}.github.io/{{ repo_name }}"
+  description: "{{ description }}"
   repo-branch: main
-  repo-url: "https://github.com/KaoruBB/uv2nix-nbdev-template"
+  repo-url: "https://github.com/{{ github_username }}/{{ repo_name }}"

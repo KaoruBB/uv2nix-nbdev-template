@@ -1,0 +1,49 @@
+# copier.yml
+_min_copier_version: "9.1.0"
+
+# User questions
+project_name:
+  type: string
+  help: "The display name of your project"
+  default: "My NBDev Project"
+
+package_name:
+  type: string
+  help: "The Python package name (snake_case)"
+  default: "{{ project_name | lower | replace('-', '_') | replace(' ', '_') }}"
+
+github_username:
+  type: string
+  help: "Your GitHub username"
+  default: "KaoruBB"
+
+repo_name:
+  type: string
+  help: "The GitHub repository name"
+  default: "{{ project_name | lower | replace(' ', '-') }}"
+
+description:
+  type: string
+  help: "A short description of the project"
+  default: "A minimal template for nbdev projects using uv2nix"
+
+author_name:
+  type: string
+  help: "Your full name"
+  default: "KaoruBB"
+
+author_email:
+  type: string
+  help: "Your email address"
+  default: "kaorubabasaki@gmail.com"
+
+# Exclusions from the template copy
+_exclude:
+  - ".git"
+  - ".direnv"
+  - ".envrc"
+  - "flake.lock"
+  - "uv.lock"
+  - "_proc"
+  - "docs"
+  - "copier.yml"
