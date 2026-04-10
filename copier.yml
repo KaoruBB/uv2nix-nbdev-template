@@ -39,17 +39,7 @@ author_email:
 
 # Exclusions from the template copy
 _exclude:
-  - ".git"
-  - ".direnv"
-  - ".envrc"
-  - "flake.lock"
-  - "uv.lock"
-  - "_proc"
-  - "docs"
   - "copier.yml"
-  - "flake.nix"
-  - "pyproject.toml"
-  - "nbs/nbdev.yml"
 
 # Copier will automatically remove the .jinja suffix from files
 # But we need to make sure the original files are not copied if they exist
