@@ -12,20 +12,31 @@
 - **Nix flake**: Deterministic development environment and build.
 - **src-layout**: Modern Python project structure.
 
-## Getting Started
+## Creating a New Project
 
-### Prerequisites
+The recommended way to create a new project is using
+[Copier](https://copier.readthedocs.io/), which automatically handles
+all metadata replacement (project name, package name, authors, etc.)
+across `flake.nix`, `pyproject.toml`, and `nbdev` settings.
 
-- [Nix](https://nixos.org/download.html) with flakes enabled
-- [direnv](https://direnv.net/) (recommended)
+``` bash
+# 1. Generate the project (answer the interactive prompts)
+uvx copier copy --trust gh:KaoruBB/uv2nix-nbdev-template ./my-new-project
 
-### Creating a New Project
+# 2. Enter the directory
+cd my-new-project
 
-1.  Click the “Use this template” button at the top of this repository
-    page.
-2.  Clone your new repository.
-3.  **Important**: Update the project details in `pyproject.toml`
-    (especially `name`, `authors`, and `[tool.nbdev]` settings).
+# 3. Create a GitHub repository and push
+# (Requires GitHub CLI 'gh' installed)
+gh repo create --public --source=. --push
+```
+
+### Alternative: GitHub “Use this template”
+
+If you prefer starting from the GitHub UI: 1. Click the **“Use this
+template”** button. 2. Clone your new repository. 3. Run the following
+command inside the cloned directory to initialize the metadata:
+`bash    uvx copier copy --trust gh:KaoruBB/uv2nix-nbdev-template .`
 
 ### Development Workflow
 
