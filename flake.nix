@@ -78,6 +78,7 @@
               python
               pkgs.uv
               pkgs.quarto
+              pkgs.basedpyright
             ];
             env = {
               UV_PYTHON_DOWNLOADS = "never";
@@ -128,6 +129,7 @@
                 virtualenv
                 pkgs.uv
                 pkgs.quarto
+                pkgs.basedpyright
               ];
 
               env = {
