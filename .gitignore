@@ -1,3 +1,4 @@
 /.direnv/
 /_proc/
 **/__pycache__/
+.DS_Store
